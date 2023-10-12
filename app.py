@@ -123,7 +123,14 @@ severity_labels = {
     1: 'Slight Injuries',
     2: 'Fatal'
 }
-
+# Contact Information
+st.sidebar.header('Contact Information')
+st.sidebar.subheader('Name:')
+st.sidebar.write('Sai Sudheer Vishnumolakala')
+st.sidebar.subheader('LinkedIn:')
+st.sidebar.write('[LinkedIn Profile](https://www.linkedin.com/in/saisudheer-vishnumolakala/)')
+st.sidebar.subheader('GitHub:')
+st.sidebar.write('[GitHub Profile](https://github.com/sudheer490/)')
 # Get the corresponding severity label based on the prediction
 predicted_severity = severity_labels.get(severity_prediction[0], 'Unknown Severity')
 st.header('Accident Severity Prediction')
