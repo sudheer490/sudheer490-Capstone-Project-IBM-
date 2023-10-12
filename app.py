@@ -3,6 +3,7 @@ import numpy as np
 from sklearn import *
 import streamlit as st
 import pickle
+from datetime import datetime
 
 import shap
 import matplotlib
@@ -74,11 +75,17 @@ ped_count = st.number_input('Pedestrian Count', min_value=0)
 ped_cycle_count = st.number_input('Pedestrian Cyclist Count', min_value=0)
 veh_count = st.number_input('Vehicle Count', min_value=0)
 under_infl = st.slider('Under Influence', min_value=0, max_value=1, step=1)
-year = st.slider('Year', min_value=2004, max_value=2023, step=1)
-month = st.slider('Month', min_value=1, max_value=12, step=1)
-day = st.slider('Day', min_value=1, max_value=31, step=1)
-hour = st.slider('Hour', min_value=0, max_value=23, step=1)
 
+# User input for date
+date_input = st.date_input('Select a date', min_value=datetime(2004, 1, 1), max_value=datetime(2023, 12, 31))
+
+# Splitting the date into year, month, day, and hour
+year = date_input.year
+month = date_input.month
+day = date_input.day
+
+# User input for hour
+hour = st.slider('Hour', min_value=0, max_value=23, step=1)
 # Preprocess user input
 user_data = {
     'ADDRTYPE': [addrtype],
