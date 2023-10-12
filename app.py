@@ -52,6 +52,10 @@ def preprocess_data(data):
 
     return data
 
+st.markdown("
+Accident Severity Prediction App 🚧
+
+", unsafe_allow_html=True)
 
 # Streamlit UI elements for categorical features
 addrtype = st.selectbox('Address Type', ['Intersection', 'Block', 'Alley', 'Unknown'])
@@ -115,7 +119,18 @@ preprocessed_df = preprocess_data(df)
 
 
 # Make predictions using the loaded model
-prediction = model.predict(preprocessed_df)
+severity_prediction = model.predict(preprocessed_df)
 
+# Define labels for severity levels
+severity_labels = {
+    1: 'Slight Injuries',
+    2: 'Fatal'
+}
+
+# Get the corresponding severity label based on the prediction
+predicted_severity = severity_labels.get(severity_prediction[0], 'Unknown Severity')
+st.header('Accident Severity Prediction')
+st.subheader('User Input:')
+st.table(pd.DataFrame(user_data))
 # Display prediction
-st.write('Predicted Severity:', prediction)
+st.write('Predicted Severity:', predicted_severity)
