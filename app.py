@@ -84,7 +84,8 @@ with col3:
     ped_count = st.number_input('Pedestrian Count', min_value=0)
     ped_cycle_count = st.number_input('Pedestrian Cyclist Count', min_value=0)
     veh_count = st.number_input('Vehicle Count', min_value=0)
-    under_infl = st.slider('Under Influence', min_value=0, max_value=1, step=1)
+    under_infl = st.selectbox('Under Drug Influence', ['No', 'Yes'])
+
 
 # User input for date
 date_input = st.date_input('Select a date', min_value=datetime(2004, 1, 1), max_value=datetime(2023, 12, 31))
