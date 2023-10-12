@@ -3,8 +3,8 @@ import pandas as pd
 import joblib  # For loading the trained model
 
 # Load the trained model and preprocessing functions
-model = joblib.load('decision_tree_model.pkl')  #Replace 'your_trained_model.pkl' with the actual filename of your trained model
-# Load other preprocessing functions if you have any
+with open('decision_tree_model.pkl', 'rb') as file:
+    loaded_model = pickle.load(file)
 
 # Function to preprocess input data
 import pandas as pd
