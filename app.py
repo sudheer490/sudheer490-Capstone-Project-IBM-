@@ -149,5 +149,5 @@ st.subheader('User Input:')
 st.table(pd.DataFrame(user_data))
 # Display prediction
 st.write('Predicted Severity:', predicted_severity)
-st.markdown(f'<p style="font-size:36px;color:red;">{predicted_severity}</p>', unsafe_allow_html=True)
+st.markdown(f'<p style="font-size:50px;color:red;">{predicted_severity}</p>', unsafe_allow_html=True)
 
