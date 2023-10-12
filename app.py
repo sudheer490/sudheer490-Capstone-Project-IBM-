@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import joblib  # For loading the trained model
 
 # Load the trained model and preprocessing functions
 with open('decision_tree_model.pkl', 'rb') as file:
