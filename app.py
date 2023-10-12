@@ -25,11 +25,32 @@ def preprocess_data(data):
                                   value=[1, 2, 3, 0, 4, 5, 6, 7, 8, 9], inplace=True)
     data['HITPARKEDCAR'].replace(to_replace=['N', 'Y'], value=[0, 1], inplace=True)
     data['SPEEDING'].replace(to_replace=['No', 'Yes'], value=[0, 1], inplace=True)
+    
+    # Encode 'WEATHER' column
+    data['WEATHER'].replace(to_replace=['Clear', 'Raining', 'Overcast', 'Unknown', 'Snowing', 'Other',
+                                        'Fog/Smog/Smoke', 'Sleet/Hail/Freezing Rain', 'Blowing Sand/Dirt',
+                                        'Severe Crosswind', 'Partly Cloudy'],
+                            value=[1, 2, 3, 0, 4, 0, 5, 6, 7, 8, 9], inplace=True)
+    
+    # Encode 'ROADCOND' column
+    data['ROADCOND'].replace(to_replace=['Wet', 'Dry', 'Unknown', 'Snow/Slush', 'Ice', 'Other',
+                                         'Sand/Mud/Dirt', 'Standing Water', 'Oil'],
+                             value=[1, 2, 0, 3, 4, 0, 5, 6, 7], inplace=True)
+    
+    # Encode 'LIGHTCOND' column
+    data['LIGHTCOND'].replace(to_replace=['Daylight', 'Dark - Street Lights On', 'Unknown', 'Dusk', 'Dawn',
+                                          'Dark - No Street Lights', 'Dark - Street Lights Off', 'Other',
+                                          'Dark - Unknown Lighting'],
+                              value=[0, 1, 2, 3, 4, 5, 6, 7, 8], inplace=True)
+    
+    # Encode 'SPEEDING' column
+    data['SPEEDING'].replace(to_replace=['No', 'Yes'], value=[0, 1], inplace=True)
 
     # For numeric features, do nothing (assuming they are already in the desired format)
     # You can add specific preprocessing steps here if needed in the future
 
     return data
+
 
 # Streamlit UI elements for categorical features
 addrtype = st.selectbox('Address Type', ['Intersection', 'Block', 'Alley', 'Unknown'])
