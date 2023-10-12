@@ -1,5 +1,11 @@
-import streamlit as st
 import pandas as pd
+import numpy as np
+import sklearn
+import streamlit as st
+import joblib
+import shap
+import matplotlib
+from IPython import get_ipython
 
 # Load the trained model and preprocessing functions
 with open('decision_tree_model.pkl', 'rb') as file:
