@@ -60,7 +60,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     addrtype = st.selectbox('Address Type', ['Intersection', 'Block', 'Alley', 'Unknown'])
-    inattention_ind = st.selectbox('Inattention Indicator', ['No', 'Yes'])
+    inattention_ind = st.selectbox('Inattention Indicator', ['No', 'Yes'],key='inattention_ind')
     pedrownotgrnt = st.selectbox('Pedestrian Right of Way Not Granted', ['No', 'Yes'])
 
 with col2:
@@ -79,20 +79,20 @@ with col3:
     speeding = st.selectbox('Speeding', ['No', 'Yes'])
 
 # Streamlit UI elements for numeric features
-col1, col2 = st.columns(2)
+col4, col5 = st.columns(2)
 
-with col1:
+with col4:
     person_count = st.number_input('Person Count', min_value=0)
     ped_count = st.number_input('Pedestrian Count', min_value=0)
 
-with col2:
+with col5:
     ped_cycle_count = st.number_input('Pedestrian Cyclist Count', min_value=0)
     veh_count = st.number_input('Vehicle Count', min_value=0)
 
 # User input for date and time
-col1, col2 = st.columns(2)
+col6, col7 = st.columns(2)
 
-with col1:
+with col6:
     under_infl =  st.selectbox('Under Drug Influence', ['No', 'Yes'])
 
 date_input = st.date_input('Date', min_value=datetime(2004, 1, 1), max_value=datetime(2023, 12, 31))
