@@ -6,5 +6,5 @@ shap
 matplotlib
 ipython
 Pillow
-scikit-learn==0.23.2
+scikit-learn
 folium
