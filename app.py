@@ -93,7 +93,7 @@ with col2:
 col1, col2 = st.columns(2)
 
 with col1:
-    under_infl = st.slider('Under Influence', min_value=0, max_value=1, step=1)
+    under_infl =  st.selectbox('Under Drug Influence', ['No', 'Yes'])
 
 with col2:
     date_input = st.date_input('Date', min_value=datetime(2004, 1, 1), max_value=datetime(2023, 12, 31))
