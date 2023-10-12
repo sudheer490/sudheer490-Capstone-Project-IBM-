@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from sklearn.externals import joblib  # For loading the trained model
+import joblib  # For loading the trained model
 from your_confusion_matrix_function import make_confusion_matrix  # Import your custom confusion matrix function here
 
 # Load the trained model and preprocessing functions
