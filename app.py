@@ -95,9 +95,8 @@ col1, col2 = st.columns(2)
 with col1:
     under_infl =  st.selectbox('Under Drug Influence', ['No', 'Yes'])
 
-with col2:
-    date_input = st.date_input('Date', min_value=datetime(2004, 1, 1), max_value=datetime(2023, 12, 31))
-    hour = st.slider('Hour', min_value=0, max_value=23, step=1)
+date_input = st.date_input('Date', min_value=datetime(2004, 1, 1), max_value=datetime(2023, 12, 31))
+hour = st.slider('Hour', min_value=0, max_value=23, step=1)
 # Splitting the date into year, month, day, and hour
 year = date_input.year
 month = date_input.month
