@@ -83,7 +83,7 @@ date_input = st.date_input('Select a date', min_value=datetime(2004, 1, 1), max_
 year = date_input.year
 month = date_input.month
 day = date_input.day
-weekday = date_input.strftime('%A')
+weekday = date_input.weekday()
 # User input for hour
 hour = st.slider('Hour', min_value=0, max_value=23, step=1)
 # Preprocess user input
