@@ -19,11 +19,11 @@ def preprocess_data(data):
     # Encode categorical features
     data['ADDRTYPE'].replace(to_replace=['Intersection', 'Block', 'Alley', 'Unknown'], value=[1, 2, 3, 0], inplace=True)
     data['INATTENTIONIND'].replace(to_replace=['No', 'Yes'], value=[0, 1], inplace=True)
-    data['PEDROWNOTGRNT'].replace(to_replace=['Y'], value=[1], inplace=True)
+    data['PEDROWNOTGRNT'].replace(to_replace=['Yes','No'], value=[1], inplace=True)
     data['COLLISIONTYPE'].replace(to_replace=['Angles', 'Sideswipe', 'Parked Car', 'Other', 'Cycles',
                                               'Rear Ended', 'Head On', 'Left Turn', 'Pedestrian', 'Right Turn'],
                                   value=[1, 2, 3, 0, 4, 5, 6, 7, 8, 9], inplace=True)
-    data['HITPARKEDCAR'].replace(to_replace=['N', 'Y'], value=[0, 1], inplace=True)
+    data['HITPARKEDCAR'].replace(to_replace=['No', 'Yes'], value=[0, 1], inplace=True)
     data['SPEEDING'].replace(to_replace=['No', 'Yes'], value=[0, 1], inplace=True)
     
     # Encode 'WEATHER' column
