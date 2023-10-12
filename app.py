@@ -52,10 +52,7 @@ def preprocess_data(data):
 
     return data
 
-st.markdown("
-Accident Severity Prediction App 🚧
-
-", unsafe_allow_html=True)
+st.markdown("Accident Severity Prediction App 🚧", unsafe_allow_html=True)
 
 # Streamlit UI elements for categorical features
 addrtype = st.selectbox('Address Type', ['Intersection', 'Block', 'Alley', 'Unknown'])
