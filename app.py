@@ -37,7 +37,7 @@ def preprocess_data(data):
     data['ROADCOND'].replace(to_replace=['Wet', 'Dry', 'Unknown', 'Snow/Slush', 'Ice', 'Other',
                                          'Sand/Mud/Dirt', 'Standing Water', 'Oil'],
                              value=[1, 2, 0, 3, 4, 0, 5, 6, 7], inplace=True)
-    
+    data['UNDERINFL'].replace(to_replace=['Yes','No'],value=[0,1],inplace=True)
     # Encode 'LIGHTCOND' column
     data['LIGHTCOND'].replace(to_replace=['Daylight', 'Dark - Street Lights On', 'Unknown', 'Dusk', 'Dawn',
                                           'Dark - No Street Lights', 'Dark - Street Lights Off', 'Other',
