@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import joblib  # For loading the trained model
-from your_confusion_matrix_function import make_confusion_matrix  # Import your custom confusion matrix function here
 
 # Load the trained model and preprocessing functions
 model = joblib.load('your_trained_model.pkl')  # Replace 'your_trained_model.pkl' with the actual filename of your trained model
