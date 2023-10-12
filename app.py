@@ -83,28 +83,29 @@ date_input = st.date_input('Select a date', min_value=datetime(2004, 1, 1), max_
 year = date_input.year
 month = date_input.month
 day = date_input.day
-
+weekday = date_input.strftime('%A')
 # User input for hour
 hour = st.slider('Hour', min_value=0, max_value=23, step=1)
 # Preprocess user input
 user_data = {
     'ADDRTYPE': [addrtype],
-    'INATTENTIONIND': [inattention_ind],
-    'PEDROWNOTGRNT': [pedrownotgrnt],
-    'COLLISIONTYPE': [collision_type],
-    'HITPARKEDCAR': [hit_parked_car],
-    'WEATHER': [weather],
-    'ROADCOND': [road_cond],
-    'LIGHTCOND': [light_cond],
-    'SPEEDING': [speeding],
     'PERSONCOUNT': [person_count],
     'PEDCOUNT': [ped_count],
     'PEDCYLCOUNT': [ped_cycle_count],
     'VEHCOUNT': [veh_count],
+    'INATTENTIONIND': [inattention_ind],
     'UNDERINFL': [under_infl],
+    'WEATHER': [weather],
+    'ROADCOND': [road_cond],
+    'LIGHTCOND': [light_cond],
+    'PEDROWNOTGRNT': [pedrownotgrnt],
+    'SPEEDING': [speeding],
+    'COLLISIONTYPE': [collision_type],
+    'HITPARKEDCAR': [hit_parked_car],
     'Year': [year],
     'Month': [month],
     'Day': [day],
+    'Weekday': [weekday],
     'Hour': [hour]
 }
 
