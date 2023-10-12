@@ -4,7 +4,7 @@ import joblib  # For loading the trained model
 
 # Load the trained model and preprocessing functions
 with open('decision_tree_model.pkl', 'rb') as file:
-    loaded_model = pickle.load(file)
+    model = pickle.load(file)
 
 # Function to preprocess input data
 import pandas as pd
@@ -25,11 +25,6 @@ def preprocess_data(data):
 
     return data
 
-import streamlit as st
-import pandas as pd
-
-# Load your model and preprocess_data function here
-model = joblib.load('decision_tree_model.pkl') 
 # Streamlit UI elements for categorical features
 addrtype = st.selectbox('Address Type', ['Intersection', 'Block', 'Alley', 'Unknown'])
 inattention_ind = st.selectbox('Inattention Indicator', ['No', 'Yes'])
