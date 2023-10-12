@@ -55,48 +55,31 @@ def preprocess_data(data):
 st.markdown("Accident Severity Prediction App 🚧", unsafe_allow_html=True)
 
 # Streamlit UI elements for categorical features
-# Streamlit UI elements for categorical features
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    addrtype = st.selectbox('Address Type', ['Intersection', 'Block', 'Alley', 'Unknown'])
-    inattention_ind = st.selectbox('Inattention Indicator', ['No', 'Yes'],key='inattention_ind')
-    pedrownotgrnt = st.selectbox('Pedestrian Right of Way Not Granted', ['No', 'Yes'])
-
-with col2:
-    collision_type = st.selectbox('Collision Type', ['Angles', 'Sideswipe', 'Parked Car', 'Other', 'Cycles',
-                                                      'Rear Ended', 'Head On', 'Left Turn', 'Pedestrian', 'Right Turn'])
-    hit_parked_car = st.selectbox('Hit Parked Car', ['No', 'Yes'])
-    weather = st.selectbox('Weather', ['Clear', 'Raining', 'Overcast', 'Unknown', 'Snowing', 'Other', 'Fog/Smog/Smoke',
-                                       'Sleet/Hail/Freezing Rain', 'Blowing Sand/Dirt', 'Severe Crosswind', 'Partly Cloudy'])
-
-with col3:
-    road_cond = st.selectbox('Road Condition', ['Wet', 'Dry', 'Unknown', 'Snow/Slush', 'Ice', 'Other',
-                                                'Sand/Mud/Dirt', 'Standing Water', 'Oil'])
-    light_cond = st.selectbox('Light Condition', ['Daylight', 'Dark - Street Lights On', 'Unknown', 'Dusk', 'Dawn',
-                                                  'Dark - No Street Lights', 'Dark - Street Lights Off', 'Other',
-                                                  'Dark - Unknown Lighting'])
-    speeding = st.selectbox('Speeding', ['No', 'Yes'])
+addrtype = st.selectbox('Address Type', ['Intersection', 'Block', 'Alley', 'Unknown'])
+inattention_ind = st.selectbox('Inattention Indicator', ['No', 'Yes'])
+pedrownotgrnt = st.selectbox('Pedestrian Right of Way Not Granted', ['No', 'Yes'])
+collision_type = st.selectbox('Collision Type', ['Angles', 'Sideswipe', 'Parked Car', 'Other', 'Cycles',
+                                                  'Rear Ended', 'Head On', 'Left Turn', 'Pedestrian', 'Right Turn'])
+hit_parked_car = st.selectbox('Hit Parked Car', ['No', 'Yes'])
+weather = st.selectbox('Weather', ['Clear', 'Raining', 'Overcast', 'Unknown', 'Snowing', 'Other', 'Fog/Smog/Smoke',
+                                   'Sleet/Hail/Freezing Rain', 'Blowing Sand/Dirt', 'Severe Crosswind', 'Partly Cloudy'])
+road_cond = st.selectbox('Road Condition', ['Wet', 'Dry', 'Unknown', 'Snow/Slush', 'Ice', 'Other',
+                                            'Sand/Mud/Dirt', 'Standing Water', 'Oil'])
+light_cond = st.selectbox('Light Condition', ['Daylight', 'Dark - Street Lights On', 'Unknown', 'Dusk', 'Dawn',
+                                              'Dark - No Street Lights', 'Dark - Street Lights Off', 'Other',
+                                              'Dark - Unknown Lighting'])
+speeding = st.selectbox('Speeding', ['No', 'Yes'])
 
 # Streamlit UI elements for numeric features
-col4, col5 = st.columns(2)
+person_count = st.number_input('Person Count', min_value=0)
+ped_count = st.number_input('Pedestrian Count', min_value=0)
+ped_cycle_count = st.number_input('Pedestrian Cyclist Count', min_value=0)
+veh_count = st.number_input('Vehicle Count', min_value=0)
+under_infl = st.slider('Under Influence', min_value=0, max_value=1, step=1)
 
-with col4:
-    person_count = st.number_input('Person Count', min_value=0)
-    ped_count = st.number_input('Pedestrian Count', min_value=0)
+# User input for date
+date_input = st.date_input('Select a date', min_value=datetime(2004, 1, 1), max_value=datetime(2023, 12, 31))
 
-with col5:
-    ped_cycle_count = st.number_input('Pedestrian Cyclist Count', min_value=0)
-    veh_count = st.number_input('Vehicle Count', min_value=0)
-
-# User input for date and time
-col6, col7 = st.columns(2)
-
-with col6:
-    under_infl =  st.selectbox('Under Drug Influence', ['No', 'Yes'])
-
-date_input = st.date_input('Date', min_value=datetime(2004, 1, 1), max_value=datetime(2023, 12, 31))
-hour = st.slider('Hour', min_value=0, max_value=23, step=1)
 # Splitting the date into year, month, day, and hour
 year = date_input.year
 month = date_input.month
